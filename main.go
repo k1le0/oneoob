@@ -22,16 +22,8 @@ func main() {
 	//wg.Wait()
 	//fmt.Println("123")
 
-	//listen, err := net.ListenTCP("tcp", &net.TCPAddr{net.ParseIP(ip), port, ""})
-	//if err != nil {
-	//	log.Println("监听端口失败:", err.Error())
-	//	return
-	//}
-	//log.Println("已初始化连接，等待客户端连接...")
-	//Server(listen)
-
-	go startServer("server1", ":8838")
-	go startServer("server2", ":8848")
+	startServer("server1", ":8838")
+	startServer("server2", ":8848")
 
 	go startClient("client1", 3, ":8848")
 	startClient("client2", 2, ":8848")
